@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    ol {
+
+        display: flex;
+        flex-direction: row;
+        list-style-position: inside;
+        text-align: center;
+
+    }
+
+    li {
+        width: 300px;
+        height: 50px;
+        border: 1px black solid;
+        align-items: center;
+    }
+
+    .seikai {
+        border: 5px yellow solid;
+        background-color: red;
+        font-size: 2rem;
+        width: 350px;
+    }
+
+    .huseikai {
+        color: aliceblue;
+        background-color: blue;
+    }
+</style>
+
+<body>
+    <p>16進数の小数0.248を10進数の分数で表したものはどれか。</p>
+    <ol type="A">
+        <li id="A">31／32</li>
+        <li id="B">31／125</li>
+        <li id="C">31／512</li>
+        <li id="D">73／512</li>
+    </ol>
+
+</body>
+<script>//quiz.htmlを参考に自分が作ったクイズ。をfor文とif分で短く。
+
+    answers = { "A": "31／32", "B": "31／125", "C": "31／512", "D": "73／512" }
+    const button = ["A", "B", "C", "D"]
+
+    function removeClass(answerId) {
+        document.getElementById(answerId).removeAttribute("class");
+        document.getElementById(answerId).textContent = (answers[answerId]);
+    }
+
+    function clickButton(click) {
+        if (click === "D") {
+            this.textContent = "正解!";
+            this.setAttribute("class", "seikai");
+        } else {
+            this.textContent = "不正解!";
+            this.setAttribute("class", "huseikai");
+        }
+    }
+
+
+
+
+
+
+
+        //フラグ
+        let clicked = false; //let は変数型
+        document.getElementById("A").addEventListener("click", function () {
+            // やりたいこと 
+            if (clicked == false) {
+                console.log(this);
+                this.textContent = "不正解!";
+                this.setAttribute("class", "huseikai");
+                clicked = true;
+            }
+        })
+        document.getElementById("B").addEventListener("click", function () {
+            // やりたいこと  
+            if (clicked == false) {
+                console.log(this);
+                this.textContent = "不正解!";
+                this.setAttribute("class", "huseikai");
+                clicked = true;
+            }
+        })
+        document.getElementById("C").addEventListener("click", function () {
+            // やりたいこと
+            if (clicked == false) {
+                console.log(this);
+                this.textContent = "不正解!";
+                this.setAttribute("class", "huseikai");
+                clicked = true;
+                //CをクリックしたらAを変更する
+                // document.getElementById("A").setAttribute("class","huseikai")
+            }
+        })
+        document.getElementById("D").addEventListener("click", function () {
+            // やりたいこと  
+            if (clicked == false) {
+                console.log(this);
+                this.textContent = "正解!";
+                this.setAttribute("class", "seikai");
+                clicked = true;
+            }
+        })
+</script>
+
+</html>
